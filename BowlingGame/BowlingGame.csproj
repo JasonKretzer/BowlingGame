@@ -43,10 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\BowlerOptions.cs" />
+    <Compile Include="Enums\RollOptions.cs" />
+    <Compile Include="Enums\GameStateOptions.cs" />
     <Compile Include="Enums\FrameOptions.cs" />
+    <Compile Include="Models\Bowler.cs" />
     <Compile Include="Models\Frame.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Exceptions\InvalidRollException.cs" />
+    <Compile Include="Models\GameResult.cs" />
     <Compile Include="Models\Roll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

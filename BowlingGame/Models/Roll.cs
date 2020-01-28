@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BowlingGame.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,31 @@ namespace BowlingGame.Models
     {
         public const int MAX_SINGLE_ROLL = 10;
         public const int MIN_SINGLE_ROLL = 0;
+
+        public RollOptions.RollTypes RollType { get; private set; }
         public int RollValue { get; private set; }
 
-        public Roll(int pinsStanding)
+
+        public Roll(int pinsStanding, RollOptions.RollTypes rollType, int manualRoll=0)
         {
             if (pinsStanding < Roll.MIN_SINGLE_ROLL ||
                 pinsStanding > Roll.MAX_SINGLE_ROLL)
             {
                 throw new InvalidRollException($"The number of pins standing must be between {MIN_SINGLE_ROLL} and {MAX_SINGLE_ROLL} inclusive.");
             }
-            Random random = new Random();
-            RollValue = random.Next(0, pinsStanding + 1);
+            RollType = rollType;
+            switch (RollType)
+            {
+                case RollOptions.RollTypes.MANUAL:
+                    RollValue = manualRoll;
+                    break;
+                case RollOptions.RollTypes.RANDOM:
+                default:
+                    Random random = new Random();
+                    RollValue = random.Next(0, pinsStanding + 1);
+                    break;
+            }
+            
         }
     }
 }
