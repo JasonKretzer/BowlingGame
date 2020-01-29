@@ -8,7 +8,7 @@
 **BowlingGame -- Bowling Engine:** 
 A functionally complete bowling engine for simulating a 10 pin game.  Is a class library that can be used with any front-end. 
 
-***NOTE:*** *If used with a web application, a middleware layer should be employed to provide data transformation vew models of the data.  ie. json*
+***NOTE:*** *If used with a web application, a middleware layer should be employed to provide data transformation view models of the data.  ie. json*
 
 **BowlerApp -- Console Bowling Front-End:** 
 A simple menu based front-end to highlight the use of the engine.  Utilizes a Bowler metaphor to play the game.  *NOTE: this is only an example front-end.  Any user interface can be used.*
