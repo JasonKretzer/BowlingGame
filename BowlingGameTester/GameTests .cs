@@ -10,7 +10,9 @@ namespace BowlingGameTester
     [TestClass]
     public class GameTests
     {
-        Game g;
+        private Game g;
+        private const int ExpectedAllSparesScore = 120;
+        private const int ExpectedAllStikesScore = 300;
 
         [TestMethod]
         public void CheckFinalScoreNoSparesNoStrikes()
@@ -25,13 +27,11 @@ namespace BowlingGameTester
             }
             result = g.GetResults();
 
-            int sumTotalScore = result.Frames.Sum(f => f.CurrentScoreValue);
+            int sumTotalScore = result.Frames.LastOrDefault().CurrentScoreValue;
             int manualTotalScore = (4 * totalRolls);
 
-            Assert.AreEqual(sumTotalScore, result.TotalScore);
-            Assert.AreEqual(manualTotalScore, result.TotalScore);
             Assert.AreEqual(manualTotalScore, sumTotalScore);
-
+            Assert.AreEqual(sumTotalScore, result.TotalScore);
         }
 
         [TestMethod]
@@ -53,8 +53,9 @@ namespace BowlingGameTester
             }
             result = g.GetResults();
 
-            int sumTotalScore = result.Frames.Sum(f => f.CurrentScoreValue);
+            int sumTotalScore = result.Frames.LastOrDefault().CurrentScoreValue;
 
+            Assert.AreEqual(ExpectedAllSparesScore, sumTotalScore);
             Assert.AreEqual(sumTotalScore, result.TotalScore);
         }
 
@@ -69,8 +70,9 @@ namespace BowlingGameTester
             }
             result = g.GetResults();
 
-            int sumTotalScore = result.Frames.Sum(f => f.CurrentScoreValue);
+            int sumTotalScore = result.Frames.LastOrDefault().CurrentScoreValue;
 
+            Assert.AreEqual(ExpectedAllStikesScore, sumTotalScore);
             Assert.AreEqual(sumTotalScore, result.TotalScore);
         }
     }

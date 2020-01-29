@@ -7,15 +7,36 @@ using System.Threading.Tasks;
 
 namespace BowlingGame.Models
 {
+    /// <summary>
+    /// Model for a single ball roll
+    /// </summary>
     public class Roll
     {
+        #region Public Constants
         public const int MAX_SINGLE_ROLL = 10;
         public const int MIN_SINGLE_ROLL = 0;
+        #endregion Public Constants
 
+        #region Public Properties
+
+        /// <summary>
+        /// Is this random or a manual roll
+        /// </summary>
         public RollOptions.RollTypes RollType { get; private set; }
+
+        /// <summary>
+        /// The value of this roll.
+        /// </summary>
         public int RollValue { get; private set; }
+        #endregion Public Properties
 
-
+        #region Constructors
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="pinsStanding"></param>
+        /// <param name="rollType"></param>
+        /// <param name="manualRoll"></param>
         public Roll(int pinsStanding, RollOptions.RollTypes rollType, int manualRoll=0)
         {
             if (pinsStanding < Roll.MIN_SINGLE_ROLL ||
@@ -31,11 +52,12 @@ namespace BowlingGame.Models
                     break;
                 case RollOptions.RollTypes.RANDOM:
                 default:
-                    Random random = new Random();
+                    //this is not a very good random number generator
+                    Random random = new Random((int)DateTime.UtcNow.TimeOfDay.TotalMilliseconds);
                     RollValue = random.Next(0, pinsStanding + 1);
                     break;
             }
-            
         }
+        #endregion Constructors
     }
 }

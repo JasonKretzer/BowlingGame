@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BowlingGame.Enums
 {
+    /// <summary>
+    /// Provides a flag to tell roll to either be random or set manually.
+    /// </summary>
     public class RollOptions
     {
         public enum RollTypes

@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BowlingGame.Enums
+namespace BowlerApp.Enums
 {
     public class BowlerOptions
     {
+        /// <summary>
+        /// The specific actions that a bowler can take
+        /// </summary>
         public enum BowlerActions
         {
             [Description("Roll the ball.")]
@@ -23,17 +26,17 @@ namespace BowlingGame.Enums
             [Description("Get the current frame number.")]
             GET_CURRENT_FRAME_NUMBER = 3,
 
+            [Description("View the frame with a given number.")]
+            VIEW_FRAME_AT = 4,
+
             [Description("Reset the game.")]
-            RESET = 4,
+            RESET = 5,
 
-            [Description("Quit the current game.")]
-            QUIT = 5,
+            [Description("Bowl a complete game with random rolls.")]
+            SIMULATE_RANDOM_GAME = 6,
 
-            [Description("Start a game.")]
-            START = 6,
-
-            [Description("Bowl a random game.")]
-            SIMULATE_RANDOM_GAME = 7,
+            [Description("Exit this game.")]
+            QUIT = 7,
         }
     }
 }

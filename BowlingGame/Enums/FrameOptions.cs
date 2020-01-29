@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BowlingGame.Enums
 {
+    /// <summary>
+    /// Provides different frame types for the game
+    /// </summary>
     public class FrameOptions
     {
         public enum FrameTypes

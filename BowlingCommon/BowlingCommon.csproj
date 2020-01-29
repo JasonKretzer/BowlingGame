@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF992B0A-E273-4838-9B98-0A8C23C396CD}</ProjectGuid>
+    <ProjectGuid>{A970D59C-5BEC-4BFF-B1A4-FF18D3E658AF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>BowlingGame</RootNamespace>
-    <AssemblyName>BowlingGame</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BowlingCommon</RootNamespace>
+    <AssemblyName>BowlingCommon</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,16 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,25 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\RollOptions.cs" />
-    <Compile Include="Enums\GameStateOptions.cs" />
-    <Compile Include="Enums\FrameOptions.cs" />
-    <Compile Include="Interfaces\IBowler.cs" />
-    <Compile Include="Models\Frame.cs" />
-    <Compile Include="Models\Game.cs" />
-    <Compile Include="Exceptions\InvalidRollException.cs" />
-    <Compile Include="Models\GameResult.cs" />
-    <Compile Include="Models\Roll.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BowlingCommon\BowlingCommon.csproj">
-      <Project>{a970d59c-5bec-4bff-b1a4-ff18d3e658af}</Project>
-      <Name>BowlingCommon</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
